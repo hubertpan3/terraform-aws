@@ -28,7 +28,7 @@ data "aws_ami" "latest_aws_arm_linux" {
 }
 
 resource "aws_instance" "test_server" {
-  ami           = "ami-03920e719f7393223"
+  ami           = data.aws_ami.latest_aws_arm_linux.id
   instance_type = "t4g.small"
   tags = {
     Name = "testServer"
