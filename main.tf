@@ -50,6 +50,7 @@ resource "aws_instance" "optional_server" {
   lifecycle {
     precondition {
       condition = var.include_optional == true
+      error_message = "include_optional must be true to create this server"
     }
   }
 }
