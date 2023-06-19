@@ -10,5 +10,6 @@ This repo was created for practicing the orchestration of AWS with Terraform
   - `terraform plan -out bob.file` allows you to save the particular plan state so it can be applied verbatim later
 - `terraform apply` -> applies the terraform state as currently present in the directory
   - `terraform apply "bob.file` allows you to apply a saved terraform plan
+- `terraform destroy` -> destroys the resources managed by this terraform configuration
 - `terraform fmt` -> formats the terraform files in the directory
 - `terraform validate` -> verifies that the terraform files are valid
