@@ -34,5 +34,6 @@ resource "aws_instance" "test_server" {
     Name = "testServer"
     type = "experimental"
     flag = "hi"
+    deploy = var.deployment_tag
   }
 }
