@@ -4,3 +4,9 @@ variable "deployment_tag" {
   type = string
   default = "deploymentTagVal"
 }
+
+variable "include_optional" {
+  description = "indicates if we should include optional server"
+  type = bool
+  default = false
+}
