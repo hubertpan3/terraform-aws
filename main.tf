@@ -12,6 +12,21 @@ provider "aws" {
   region = "us-east-2"
 }
 
+data "aws_ami" "latest_aws_arm_linux" {
+  most_recent = true
+  owners = ["137112412989"]
+
+  filter {
+    name = "name"
+    values = [" al2023-ami-2023.*"]
+  }
+
+  filter {
+    name = "virtualization-type"
+    values = ["hvm"]
+  }
+}
+
 resource "aws_instance" "test_server" {
   ami           = "ami-03920e719f7393223"
   instance_type = "t4g.small"
