@@ -39,6 +39,7 @@ resource "aws_instance" "test_server" {
 }
 
 resource "aws_instance" "optional_server" {
+  count = var.include_optional ? 1 : 0
   ami = data.aws_ami.latest_aws_arm_linux.id
   instance_type = "t4g.small"
   tags = {
@@ -46,11 +47,5 @@ resource "aws_instance" "optional_server" {
     type = "experimental"
     flag = "hi"
     deploy = var.deployment_tag
-  }
-  lifecycle {
-    precondition {
-      condition = var.include_optional == true
-      error_message = "include_optional must be true to create this server"
-    }
   }
 }
