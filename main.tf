@@ -37,3 +37,19 @@ resource "aws_instance" "test_server" {
     deploy = var.deployment_tag
   }
 }
+
+resource "aws_instance" "optional_server" {
+  ami = data.aws_ami.latest_aws_arm_linux.id
+  instance_type = "t4g.small"
+  tags = {
+    Name = "optionalServer"
+    type = "experimental"
+    flag = "hi"
+    deploy = var.deployment_tag
+  }
+  lifecycle {
+    precondition {
+      condition = var.include_optional == true
+    }
+  }
+}
