@@ -13,3 +13,5 @@ This repo was created for practicing the orchestration of AWS with Terraform
 - `terraform destroy` -> destroys the resources managed by this terraform configuration
 - `terraform fmt` -> formats the terraform files in the directory
 - `terraform validate` -> verifies that the terraform files are valid
+- `terraform show` -> displays the currently provisioned resources
+- `terraform state list` -> displays the currently provisioned state
